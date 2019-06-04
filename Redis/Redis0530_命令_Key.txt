@@ -1,0 +1,13 @@
+1.检测redis服务是否启动：ping
+2.连接上服务器：redis-cli -h host -p port -a password 中文乱码问题 --raw
+
+	Redis keys命令：
+		1.del key ：在key存在时删除key
+		2.dump key：序列化给定 key，并返回被序列化的值
+		3.exists key:检查给定key是否存在
+		4.expire key seconds:设置过期时间，以秒计
+		5.keys pattern:查找所有符合给定模式的key
+		6.ttl key:返回key的剩余生存时间
+		7.randomkey:从当前数据库中随机返回一个key
+		8.renamenx key newkey:仅当newkey不存在时，将key改名为newkey
+		9.type key：返回所存储的值的类型

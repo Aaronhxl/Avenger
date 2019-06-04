@@ -1,0 +1,26 @@
+Redis中的数据类型：
+	1.String
+		No1.是redis最基本的类型，一个key对应一个value
+		No2.是二进制安全的，可以存储任何数据，图片或序列化的对象
+		No3.最大能存储512M
+		No4.set get 和 mset mget
+	2.Hash
+		No1.是一个键值（key = value）对集合
+		No2.是一个string类型的field和value的映射表，hash特别适合存储对象
+		No3.hset hget 和 hmset hmget
+	3.List
+		No1.redis列表是简单的字符串列表，按照插入顺序排序。可以添加一个元素
+		    到列表的头部或尾部	
+		No2.列表最多可以存储2^32 - 1元素（40多亿）
+		No3.lpush key value1 value2...lrange key start end
+	4.Set
+		No1.是string类型的无序集合，集合是通过哈希表实现的，所以添加、删除、查找的复杂度都是O（1）
+		No2.集合内元素自动去重，保证唯一性
+		No3.集合最多可以存储2^32 - 1元素（40多亿）
+		No4.sadd key value和 smembers key
+	5.Zset（sorted set:有序集合）
+		No1.和set一样也是string类型元素的集合，且不允许重复的成员
+		    不同的是每个元素都会关联一个double类型的分数。redis正是通过分数来为集合中的成员
+		     进行从小到大排序
+		No2.zset的成员是唯一的，但分数（score）
+		No3.zadd key score memeber 和 zrangebyscore

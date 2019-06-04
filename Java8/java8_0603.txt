@@ -1,0 +1,60 @@
+Lambda表达式
+
+	在Java中，我们无法将函数作为参数传递给一个方法，也无法声明返回一个函数的方法
+	在JS中，函数参数是一个参数，返回值是另一个函数的情况是非常常见的；JS是一门非
+	常典型的函数式语言
+
+	lambda表达式的基本结构：
+	（param1，param2...）->{ expression}
+
+	函数式接口：@FunctionalInterface
+	定义：a functional interface has exactly one abstract method.也就是说，一个函
+	数式接口只能有且仅有一个抽象方法
+	Note that instances of functional interfaces can be created with
+ 	lambda expressions, method references, or constructor references.
+	函数式接口可以使用以上三种方法构造出实例
+
+	1.如果一个接口只有一个抽象方法，那么该接口就是一个函数式接口
+	2.如果我们子某个接口上声明了FunctionInterface注解，那么编译器就会按照函数式接口的定义来要求该接口
+	3.如果某个接口只有一个抽象方法，但我们并没有给该接口声明为FunctionalInterface注解，那么
+	编译期依旧会将该接口看作是函数式接口
+	
+	在将函数作为一等公民的语言中，lambda表达式的类型是函数，比如python
+	在Java中，lambda表达式是对象，他们必须依附于一类特别的对象类型--函数式接口
+	
+	外部迭代：通过外部的一个迭代器，去遍历集合（增强for）
+	内部迭代：无迭代器，完全通过集合本身（forEach）
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

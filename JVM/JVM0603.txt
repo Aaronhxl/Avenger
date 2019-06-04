@@ -1,0 +1,10 @@
+ClassLoader的源码分析：
+	1.ClassLoader是一个抽象类
+	2.java.net.URLClassLoader$3$1:第三个匿名内部类中的第一个匿名内部类
+	3.每一个Class对象都包含一个ClassLoader对象的引用
+	4.数组的Class对象不是由ClassLoader创建的，而是由JVM在需要的时候自动创建的（复习之前的笔记）
+	5.数组的Class对象的ClassLoader与该数组的任一元素类型的ClassLoaer是一样的
+	如果数组的类型是基本类型，那么该类是无ClassLoader的 为null
+	这和BootStrap的类加载器为null是不一样
+	6.ClassLoader的子类是为了扩展JVM动态加载类的方式，我们都知道JVM加载类默认采用
+	双亲委派机制，那么这个自定义就回会丰富

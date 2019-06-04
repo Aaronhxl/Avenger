@@ -1,0 +1,8 @@
+Redis字符串命令：
+	1.set key value:设置指定key的值
+	2.get key:获取指定key的值
+	3.getrange key start end:返回key中字符串值得子字符串
+	4.getset key value:将给定key得值设为value,并返回key得旧值
+	5.mset mget批量插入和查找
+	6.strlen key:返回key所存储的字符串值得长度
+	7.
