@@ -1,0 +1,3 @@
+roundº¯Êý£º
+	round(float a):·µ»Øint
+	round(double a):·µ»Ølong
