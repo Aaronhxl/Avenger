@@ -1,3 +1,8 @@
 round函数：
+	round函数在四舍五入的情况下，总是向大的方向偏，-10.5 -》-10 ，10.5 -》11，
+	返回的数据类注意float ->int double -> long
 	round(float a):返回int
 	round(double a):返回long
+
+	ceil(double a):返回double ，向上取整，放大的方向
+	floor(double a):返回double，向下取整，缩小的方向

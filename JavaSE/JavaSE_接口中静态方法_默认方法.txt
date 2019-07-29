@@ -1,0 +1,8 @@
+参考：https://blog.csdn.net/sun_promise/article/details/51220518
+接口不能提供对Object类的任何方法的默认实现。从接口里不能提供对equals，hashCode或toString的默认实现。
+因为若可以会很难确定什么时候该调用接口默认的方法。
+
+如果一个类实现了一个方法，那总是优先于默认的实现的。
+一旦所有接口的实例都是Object的子类，所有接口实例都已经有对equals/hashCode/toString等方法非默认实现。
+因此，一个在接口上的这些默认方法都是没用的，它也不会被编译。（简单地讲，每一个java类都是Object的子类，
+也都继承了它类中的equals/hashCode/toString方法，那么在类的接口上包含这些默认方法是没有意义的，它们也从来不会被编译。）

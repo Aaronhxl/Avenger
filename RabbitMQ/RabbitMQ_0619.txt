@@ -1,0 +1,45 @@
+Question1：如何保证在消息执行了一半的时候，服务器宕机的情况？
+	通过ack回调，只有mq收到服务器会的ack才会在某个时刻安全
+	的删除这个消息，要是未收到将会把这个消息重新发送给其他
+	消费者
+	Ack回调通知必须使用和接收消息的同一个频道，否则将导致
+	channel-level protocol exception
+Question2：如何保证在MQ服务器宕机的时候，消息不丢失？
+	默认情况下，MQ宕机的话，MQ将会丢失全部数据
+	通过消息的持久化：我们需要做两件事，使queue和message持久化
+	boolean durable = true;
+	channel.queueDeclare("hello", durable, false, false, null);
+	channel.basicPublish("", "task_queue",
+            MessageProperties.PERSISTENT_TEXT_PLAIN,
+            message.getBytes());
+	即使，这样做了，也并不一定能保证完全的持久性，因为消息的在
+	queue的时间太短，可能MQ还没来得及保存，可能仅仅只是写在缓存，
+	而不是磁盘
+
+发布/订阅模型：
+	在这个模型中，生产者不会直接将消息发给queue，而是发送消息
+	到exchange，Exchange作用：一方面接收生产者消息，一方面推送
+	到queue
+
+	Exchange的类型：direct、topic、header、fanout
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+补充：MQ不允许重复定义一个已经存在的queue，也不允许修改它的属性
+	

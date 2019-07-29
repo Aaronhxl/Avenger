@@ -24,7 +24,7 @@
 		  字符串可存储任何形式的字符串类型，当存储的字符串是整数类型时，Redis提供了一个实用的
 		  的命令incr，其作用是让当前键值递增，并返回递增后的值
 		  作用：可以统计文章的访问量、生成自增ID、存储文章数据
-		3.所有的Redis命令都是原子操作，
+		3.所有的Redis命令都是原子操作
 		4.增加指定的整数：incrby key increment
 		5.减少指定的整数：decr key 与decrby key decrement
 		6.增加指定的浮点数：incrbyfloat key increment

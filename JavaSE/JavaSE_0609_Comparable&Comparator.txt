@@ -1,0 +1,32 @@
+参考文章：https://www.cnblogs.com/xujian2014/p/5215082.html
+
+	某种意义上来说：Comparable是排序接口。若一个类实现了该接口
+	就意味着该类支持排序，实现了该接口的类的对象的列表或数组可
+	以通过Collections.sort或者Arrays.sort进行自动排序，这在Set
+	Map集合中的插入操作中是至关重要的
+	注意到：Comparable是一个参数，因为默认是同类元素排序
+	public interface Comparable<T> 
+	{
+    		public int compareTo(T o);
+	}
+	这时候的排序写法就是Collections.sort(arrays);
+	
+	Comparator比较器，这是在需要排序的时候，动态生成一种排序规则
+	注意到是两个参数，一般在排序的时候，使用lambda表达式实现这个
+	接口，传入比较器
+	public interface Comparator<T>
+ 	{
+    		int compare(T o1, T o2);
+    		boolean equals(Object obj);
+	 }
+	这时候的排序写法就是Collections.sort(arrays,(o1,o2)->{statement})
+
+对比：
+	Comparable是排序接口，若一个类实现了Comparable接口，就意味着“该类支持排序”。
+	而Comparator是比较器，我们若需要控制某个类的次序，可以建立一个“该类的比较器”来进行排序。
+　　	Comparable相当于“内部比较器”，而Comparator相当于“外部比较器”。
+	两种方法各有优劣， 用Comparable 简单， 只要实现Comparable 接口的对象直接就成为一个可以比较的对象，
+	但是需要修改源代码。 用Comparator 的好处是不需要修改源代码， 而是另外实现一个比较器， 
+	当某个自定义的对象需要作比较的时候，把比较器和对象一起传递过去就可以比大小了， 
+	并且在Comparator 里面用户可以自己实现复杂的可以通用的逻辑，使其可以匹配一些比较简单的对象，
+	那样就可以节省很多重复劳动了。
